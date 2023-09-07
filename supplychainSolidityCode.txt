@@ -1,0 +1,197 @@
+// SPDX-License-Identifier: MIT
+ 
+pragma solidity >=0.7.0 <0.9.0; 
+import "@openzeppelin/contracts/utils/Counters.sol"; 
+ 
+contract supplychain{  
+
+    address public owner;
+    using Counters for Counters.Counter;
+
+     constructor() {
+        owner = msg.sender;
+    }
+
+     modifier validAddress(address _addr) {
+        require(_addr != address(0), "Address Invalid");
+        _;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only the contract owner can perform this action");
+        _;
+    }
+
+    modifier nonNegative(uint number) {
+        require(number >= 0, "Negative values are not allowed");
+        _;
+    }
+
+    struct Manufacturer{
+        uint Mid;
+        string Mname;        
+        string Memailid;       
+        string Maddress;
+        uint Mdate;
+        address MwalletAddress;
+    } 
+ 
+    Manufacturer public m1;
+    Manufacturer[] public manufacturerarr ;
+    Counters.Counter private mcounter;
+    
+     struct Product {
+        uint256 productId;
+        string name;
+        uint256 price;  
+        uint256 quantity;
+        address owner;
+        uint manufacturerIndex;
+        uint supplierIndex;
+    }
+ 
+    Product public p1;
+    Product[] public productArr;
+    Counters.Counter private pcounter;
+    mapping (address => Product) manufacturermapping;
+ 
+    struct Supplier{
+        uint Sid;
+        string Sname;        
+        string Semailid;       
+        string Saddress;
+        uint Sdate;
+        address SwalletAddress;
+    }
+    Supplier public s1;
+    Supplier[] public supplierarr;    
+    Counters.Counter private scounter;
+    mapping (address => Supplier) suppliermapping;
+
+
+    struct User{
+        uint Uid;
+        string Uname;
+        string Uaddress;
+        string Uemail;
+        uint Uregisterdate;
+        address Uwallet;
+    }
+    
+    
+
+    User public u1;
+    User[] public userarr;
+    Counters.Counter private ucounter;
+    mapping (address=>User) usermapping;
+    
+    
+    
+
+    event newManufacturer(address owner, Manufacturer newManufacturer,uint timestamp);
+    function createManufacturer(string memory _Mname, string memory _Memailid, string memory _Maddress, uint _Mdate)public nonNegative(_Mdate) {
+       
+        mcounter.increment();
+        m1.Mid = mcounter.current();
+        m1.Mname = _Mname;
+        m1.Memailid = _Memailid;       
+        m1.Maddress = _Maddress; 
+        m1.Mdate  = _Mdate;
+        m1.MwalletAddress = msg.sender;
+        manufacturerarr.push(m1);
+        emit newManufacturer(msg.sender, m1, block.timestamp);
+    
+    }
+    function getManufacturer(uint i) public view returns (Manufacturer memory) {
+        return manufacturerarr[i];
+    }
+    function getAllManufacturers() public view returns (Manufacturer[] memory){
+        return manufacturerarr;
+    }
+ 
+    event newProduct(address owner, Product newProduct, uint256 timestamp);
+ 
+    function createProduct( string memory _name, uint256 _price, uint256 _quantity, uint _manufacturerIndex, uint _supplierIndex) public onlyOwner nonNegative(_price) nonNegative(_quantity) {
+       pcounter.increment();
+       p1.productId=pcounter.current();
+        p1.name = _name;
+        p1.price = _price;
+        p1.quantity = _quantity;
+        p1.owner = msg.sender;
+        p1.manufacturerIndex = _manufacturerIndex;
+        p1.supplierIndex = _supplierIndex;
+        manufacturermapping[msg.sender] = p1;
+        productArr.push(p1);
+        emit newProduct(msg.sender, p1, block.timestamp);
+    }
+ 
+    function getProduct(uint256 i) public view returns (Product memory) {
+        return productArr[i];
+    }
+ 
+    function getAllProducts() public view returns (Product[] memory) {
+        return productArr;
+    }
+ 
+    function getProductDetailsByName(uint _productId) public view returns (Product memory) {
+
+        require(_productId <= productArr.length, "Product not found");
+
+        return productArr[_productId];
+
+    }
+
+    event newSupplier(address owner, Supplier newSupplier,uint timestamp);
+    function createSupplier( string memory _sname, string memory _semailid, string memory _saddress, uint _sdate)public nonNegative(_sdate){
+        scounter.increment();
+        s1.Sid=scounter.current();
+        s1.Sname = _sname;
+        s1.Semailid = _semailid;       
+        s1.Saddress = _saddress; 
+        s1.Sdate  = _sdate;
+        s1.SwalletAddress = msg.sender;
+        suppliermapping[msg.sender] = s1;
+        supplierarr.push(s1);
+        emit newSupplier(msg.sender, s1, block.timestamp);    
+    }
+    function getSupplier(uint i) public view returns (Supplier memory) {
+        return supplierarr[i];
+    }
+    function getAllSupplier() public view returns (Supplier[] memory){
+        return supplierarr;
+    }
+
+
+    event newuser(address owner, User newUser, uint timestamp);
+    function createUser( string memory _Uname, string memory  _Uaddress, string memory _Uemail, uint _Uregisterdate )public nonNegative(_Uregisterdate){
+        ucounter.increment();
+        u1.Uid=ucounter.current();
+        u1.Uname= _Uname;
+        u1.Uaddress = _Uaddress;
+        u1.Uemail = _Uemail;
+        u1.Uregisterdate = _Uregisterdate;
+        u1.Uwallet = msg.sender;
+        usermapping[msg.sender] = u1;
+        userarr.push(u1);
+        emit newuser(msg.sender,u1 ,block.timestamp);
+       
+
+    }
+
+    event BuyNew(uint productId, address newOwner, uint timestamp);
+    event ProductDetails(string productName, string supplierName, string manufacturerName, uint256 productCost);
+
+   function buyProduct(uint productId, address newOwner) public{
+    require(newOwner != address(0), "Invalid Wallet Address");
+    Product storage productToBuy = productArr[productId];
+
+    productToBuy.owner = newOwner;
+    emit BuyNew(productToBuy.productId, productToBuy.owner, block.timestamp);
+    getProductDetailsByName(productId);
+    
+}
+
+
+
+}
+

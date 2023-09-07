@@ -1,0 +1,1043 @@
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "productid",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_newowner",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "buynew",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "Mid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "Mname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Memailid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Maddress",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Mdate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "MwalletAddress",
+						"type": "address"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct manufacturer.Manufacturer",
+				"name": "newManufacturer",
+				"type": "tuple"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "newManufacturer",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct manufacturer.Product",
+				"name": "newProduct",
+				"type": "tuple"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "newProduct",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "Sid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "Sname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Semailid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Saddress",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Sdate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "SwalletAddress",
+						"type": "address"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct manufacturer.Supplier",
+				"name": "newSupplier",
+				"type": "tuple"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "newSupplier",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "Uid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "Uname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Uaddress",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Uemail",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Uregisterdate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "Uwallet",
+						"type": "address"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct manufacturer.User",
+				"name": "newUser",
+				"type": "tuple"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "newuser",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "productid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_newowner",
+				"type": "address"
+			}
+		],
+		"name": "buyproduct",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "counter",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_Mid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_Mname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_Memailid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_Maddress",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_Mdate",
+				"type": "uint256"
+			}
+		],
+		"name": "createManufacturer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_productId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_quantity",
+				"type": "uint256"
+			}
+		],
+		"name": "createProduct",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_sid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_sname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_semailid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_saddress",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_sdate",
+				"type": "uint256"
+			}
+		],
+		"name": "createSupplier",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_Uid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_Uname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_Uaddress",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_Uemail",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_Uregisterdate",
+				"type": "uint256"
+			}
+		],
+		"name": "createUser",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllManufacturers",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "Mid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "Mname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Memailid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Maddress",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Mdate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "MwalletAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct manufacturer.Manufacturer[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllProducts",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"internalType": "struct manufacturer.Product[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllSupplier",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "Sid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "Sname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Semailid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Saddress",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Sdate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "SwalletAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct manufacturer.Supplier[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "i",
+				"type": "uint256"
+			}
+		],
+		"name": "getManufacturer",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "Mid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "Mname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Memailid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Maddress",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Mdate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "MwalletAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct manufacturer.Manufacturer",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "i",
+				"type": "uint256"
+			}
+		],
+		"name": "getProduct",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"internalType": "struct manufacturer.Product",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "i",
+				"type": "uint256"
+			}
+		],
+		"name": "getSupplier",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "Sid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "Sname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Semailid",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Saddress",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Sdate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "SwalletAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct manufacturer.Supplier",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "m1",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "Mid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "Mname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Memailid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Maddress",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "Mdate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "MwalletAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "manufacturerarr",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "Mid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "Mname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Memailid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Maddress",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "Mdate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "MwalletAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "p1",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "productId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "quantity",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "pcounter",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "productArr",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "productId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "quantity",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "s1",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "Sid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "Sname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Semailid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Saddress",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "Sdate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "SwalletAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "scounter",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "supplierarr",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "Sid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "Sname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Semailid",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Saddress",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "Sdate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "SwalletAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "u1",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "Uid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "Uname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Uaddress",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Uemail",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "Uregisterdate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "Uwallet",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "ucounter",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "userarr",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "Uid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "Uname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Uaddress",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Uemail",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "Uregisterdate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "Uwallet",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
